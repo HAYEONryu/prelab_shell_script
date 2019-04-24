@@ -1,0 +1,31 @@
+#!/bin/bash
+#program to output a system information page
+title="system info report For $HOSTNAME"
+current_time=$(date +"%x %r %Z")
+timestamp="Generated $current_time, by $USER"
+report_uptime () {
+	echo "func report uptime executed"
+	return
+	}
+report_disk_space () {
+    echo "func report disk space executed"
+    return
+    }
+report_home_space () {
+    echo "func report home space executed"
+    return
+    }
+cat << _EOF_
+<HTML>
+	<HEAD>
+	<TITLE>$title</TITLE>
+	</HEAD>
+	<BODY>
+		<H1>$title</H1>
+		<P>$timestamp</P>
+		$(report_uptime) 
+		$(report_disk_space) 
+		$(report_home_space)
+	</BODY>
+</HTML>
+_EOF_
